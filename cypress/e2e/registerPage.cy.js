@@ -46,7 +46,7 @@ describe("Register page Authentication", () => {
     });
   });
 
-  context("Test Aurh - E-mail Field", () => {
+  context("Test Auth - E-mail Field", () => {
     it("Regitring with an empty e-mail", () => {
       registerPage.fillName(userData.valid.name);
       registerPage.fillPassword(userData.valid.password);
@@ -70,7 +70,7 @@ describe("Register page Authentication", () => {
       );
     });
 
-    it.only("Registring with just space characters - Field E-mail", () => {
+    it("Registring with just space characters - Field E-mail", () => {
       registerPage.fillName(userData.valid.name);
       registerPage.fillEmail("         ");
       registerPage.fillPassword(userData.valid.password);
@@ -81,9 +81,37 @@ describe("Register page Authentication", () => {
         "O campo e-mail deve ser prenchido corretamente",
       );
     });
+
+    it("Using uppercase E-mail", () => {
+      registerPage.fillName(userData.valid.name);
+      registerPage.fillEmail(userData.valid.UpperCaseEmail); // WESLEI@GMAIL.COM
+      registerPage.fillPassword(userData.valid.password);
+
+      registerPage.confirmUserRegister();
+
+      registerPage.checkSuccessRegister(userData.valid.name);
+    });
   });
 
   context("Test Auth - Password Field", () => {
-    
-  })
+    it("Registring using an invalid password", () => {
+      registerPage.fillName(userData.valid.name);
+      registerPage.fillEmail(userData.valid.email);
+      registerPage.fillPassword(userData.invalid.password); // 123
+
+      registerPage.confirmUserRegister();
+
+      registerPage.checkMessage("O campo senha deve ter pelo menos 6 dígitos");
+    });
+
+    it("Registring using just space characters", () => {
+      registerPage.fillName(userData.valid.name);
+      registerPage.fillEmail(userData.valid.email);
+      registerPage.fillPassword("     ");
+
+      registerPage.confirmUserRegister();
+
+      registerPage.checkMessage("O campo senha deve ter pelo menos 6 dígitos");
+    });
+  });
 });

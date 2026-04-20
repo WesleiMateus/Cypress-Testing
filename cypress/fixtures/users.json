@@ -2,7 +2,8 @@
   "valid": {
     "name": "Weslei Mateus",
     "email": "weslei@gmail.com",
-    "password": "password123"
+    "password": "password123",
+    "UpperCaseEmail": "WESLEI@GMAIL.COM"
   },
   "invalid": {
     "email": "Emailivalido",
