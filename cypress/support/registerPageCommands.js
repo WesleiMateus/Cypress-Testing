@@ -13,27 +13,32 @@ const formElements = {
   },
   messages: {
     successTitle: "#swal2-title",
-    successSubTitle: "#swal2-html-container"
-  }
-}
+    successSubTitle: "#swal2-html-container",
+  },
+};
 
 export default {
   accessRegisterPage() {
-    cy.visit("/register")
+    cy.visit("/register");
   },
 
   confirmUserRegister() {
-    cy.get(formElements.buttons.register).click()
+    cy.get(formElements.buttons.register).click();
   },
 
   checkMessage(message) {
-    cy.get(formElements.form).contains(message)
+    cy.get(formElements.form).should("be.visible").contains(message);
   },
 
   checkSuccessRegister(name) {
-    cy.get(formElements.messages.successTitle).should("be.visible").contains("Cadastro realizado");
+    cy.get(formElements.messages.successTitle)
+      .should("be.visible")
+      .contains("Cadastro realizado");
 
-    cy.get(formElements.messages.successSubTitle).should("have.text", `Bem-vindo ${name}`)
+    cy.get(formElements.messages.successSubTitle).should(
+      "have.text",
+      `Bem-vindo ${name}`,
+    );
   },
 
   fillName(name) {
@@ -47,6 +52,4 @@ export default {
   fillPassword(password) {
     cy.get(formElements.fields.password).type(password);
   },
-
-
-}
+};
