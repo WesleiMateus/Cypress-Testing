@@ -18,5 +18,5 @@ jobs:
           wait-on: 'https://automationpratice.com.br'
           wait-on-timeout: 50
           record: true
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          # 
+          env:
+            CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
