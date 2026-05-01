@@ -16,4 +16,4 @@ jobs:
         uses: cypress-io/github-action@v7
         with:
           record: true
-          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
