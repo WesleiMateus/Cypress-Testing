@@ -34,7 +34,7 @@ describe("Login Page Authentication", () => {
       loginPage.checkMessage("E-mail inválido.");
     });
 
-    it.only("Loging using an invalid E-mail", () => {
+    it("Loging using an invalid E-mail", () => {
       loginPage.fillEmail(userData.invalid.email);
       loginPage.fillPassword(userData.valid.password);
 

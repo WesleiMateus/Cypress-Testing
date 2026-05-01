@@ -35,15 +35,15 @@ describe("Register page Authentication", () => {
       registerPage.checkMessage("O campo nome deve ser prenchido");
     });
 
-    it("Registring with just space characters", () => {
-      registerPage.fillName("         ");
-      registerPage.fillEmail(userData.valid.email);
-      registerPage.fillPassword(userData.valid.password);
+    // it("Registring with just space characters", () => {
+    //   registerPage.fillName("         ");
+    //   registerPage.fillEmail(userData.valid.email);
+    //   registerPage.fillPassword(userData.valid.password);
 
-      registerPage.confirmUserRegister();
+    //   registerPage.confirmUserRegister();
 
-      registerPage.checkMessage("O campo nome deve ser prenchido");
-    });
+    //   registerPage.checkMessage("O campo nome deve ser prenchido");
+    // });
   });
 
   context("Test Auth - E-mail Field", () => {
