@@ -1,0 +1,19 @@
+name: Run basic tests
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  runCypressTests:
+    runs-on: [windows-latest]
+
+    steps:
+      - name: Checkout / Clone of project
+        uses: actions/checkout@v6
+
+      - name: Run Tests
+        uses: cypress-io/github-action@v7
+        with:
+          record: true
+          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
