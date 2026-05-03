@@ -15,8 +15,14 @@ jobs:
       - name: Run Tests
         uses: cypress-io/github-action@v7
         with:
-          wait-on: 'https://automationpratice.com.br'
+          wait-on: "https://automationpratice.com.br"
           wait-on-timeout: 50
           record: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+      - name: Upload mochawesome
+        uses: actions/upload-artifact@v7
+        with:
+          name: Relatório
+          path: cypress/reports/html
